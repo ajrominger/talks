@@ -67,7 +67,7 @@ one more thing...
 
 --- #rstats x:-1000 y:5000
 
-```{r echo = T, eval = F}
+```{r echo = T, eval = F, cache = T}
 library(ggplot2)
 qplot(wt, mpg, data = mtcars)
 ```
