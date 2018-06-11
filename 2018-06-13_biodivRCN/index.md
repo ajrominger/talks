@@ -1,13 +1,11 @@
 ---
-title: Testing ImpressJS
-author: Ramnath Vaidyanathan
+title: Diversity informatics for all
+author: Andrew Rominger
 mode  : selfcontained
 framework: impressjs
 github:
-  user: ramnathv
-  repo: slidify
-twitter:
-  text: "Slidify with impress.js!"
+  user: ajrominger
+  repo: talks 
 url:
   lib: ../libraries
 --- .slide x:-1000 y:-1500
