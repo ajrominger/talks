@@ -75,11 +75,6 @@ qplot(wt, mpg, data = mtcars)
 
 --- x:-1500 y:5500
 
-
-```
-## Error in eval(expr, envir, enclos): object 'opts_chunk' not found
-```
-
 ![plot of chunk unnamed-chunk-2](assets/fig/unnamed-chunk-2-1.png)
 
 
