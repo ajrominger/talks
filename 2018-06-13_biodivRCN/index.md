@@ -9,7 +9,7 @@ github:
 twitter:
   text: "Slidify with impress.js!"
 url:
-  lib: ../../libraries
+  lib: ../libraries
 --- .slide x:-1000 y:-1500
 
 <q>Aren't you just **bored** with all those slides-based presentations?</q>
@@ -73,11 +73,14 @@ library(ggplot2)
 qplot(wt, mpg, data = mtcars)
 ```
 
-
 --- x:-1500 y:5500
 
-![plot of chunk unnamed-chunk-2](assets/fig/unnamed-chunk-2.png) 
 
+```
+## Error in eval(expr, envir, enclos): object 'opts_chunk' not found
+```
+
+![plot of chunk unnamed-chunk-2](assets/fig/unnamed-chunk-2-1.png)
 
 
   
