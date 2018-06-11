@@ -8,23 +8,12 @@ github:
   repo: talks 
 url:
   lib: ../libraries
---- .slide x:-1000 y:-1500
+--- #overview x:3000 y:2500 scale:1
 
-<q>Aren't you just **bored** with all those slides-based presentations?</q>
-
---- .slide x:0 y:-1500
-
-<q>Don't you think that presentations given **in modern browsers** shouldn't **copy the limits** of 'classic' slide decks?</q>
-
---- .slide x:1000 y:-1500
-
-<q>Would you like to **impress your audience** with **stunning visualization** of your talk?</q>
-
---- #title x:0 y:0 scale:4
-
-<span class="try">then you should try</span>
-# impress.js^*
-<span class="footnote">^* no rhyme intended</span>
+--- #hawaii x:0 y:0 scale:4
+```{r, echo = FALSE}
+source('hawaii_map.R')
+```
 
 --- #its x:850 y:3000 rot:45 scale:5
 
@@ -51,7 +40,7 @@ the only **limit** is your <b class="imagination">imagination</b>
 
 want to know more?
 
-<q>[use the source](http://github.com/bartaz/impress.js), Luke</q>
+[use the source](http://github.com/bartaz/impress.js), Luke
 
 --- #one-more-thing x:6000 y:4000 scale:2
 
@@ -65,18 +54,7 @@ one more thing...
 
 --- #rstats x:-1000 y:5000
 
-```{r echo = T, eval = F}
+```{r echo = TRUE, eval = TRUE}
 library(ggplot2)
 qplot(wt, mpg, data = mtcars)
 ```
-
---- x:-1500 y:5500
-
-```{r echo = F, eval = T, message = F}
-knitr::opts_chunk$set(fig.path = 'assets/fig/')
-library(ggplot2)
-qplot(wt, mpg, data = mtcars)
-```
-
-
-  

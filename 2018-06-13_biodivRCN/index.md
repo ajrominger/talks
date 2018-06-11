@@ -8,23 +8,26 @@ github:
   repo: talks 
 url:
   lib: ../libraries
---- .slide x:-1000 y:-1500
+--- #overview x:3000 y:2500 scale:1
 
-<q>Aren't you just **bored** with all those slides-based presentations?</q>
+--- #hawaii x:0 y:0 scale:4
 
---- .slide x:0 y:-1500
+```
+## OGR data source with driver: ESRI Shapefile 
+## Source: "/Users/ajr/Dropbox/hawaiiDimensions/geoData/env_data/geol", layer: "Haw_St_geo_20070426_region"
+## with 9862 features
+## It has 15 fields
+## Integer64 fields read as strings:  ID STRAT_CODE AGE_GROUP
+```
 
-<q>Don't you think that presentations given **in modern browsers** shouldn't **copy the limits** of 'classic' slide decks?</q>
+```
+## Warning in file(file, "rt"): cannot open file '../Haw_St_ageCode.csv': No
+## such file or directory
+```
 
---- .slide x:1000 y:-1500
-
-<q>Would you like to **impress your audience** with **stunning visualization** of your talk?</q>
-
---- #title x:0 y:0 scale:4
-
-<span class="try">then you should try</span>
-# impress.js^*
-<span class="footnote">^* no rhyme intended</span>
+```
+## Error in file(file, "rt"): cannot open the connection
+```
 
 --- #its x:850 y:3000 rot:45 scale:5
 
@@ -51,7 +54,7 @@ the only **limit** is your <b class="imagination">imagination</b>
 
 want to know more?
 
-<q>[use the source](http://github.com/bartaz/impress.js), Luke</q>
+[use the source](http://github.com/bartaz/impress.js), Luke
 
 --- #one-more-thing x:6000 y:4000 scale:2
 
@@ -71,9 +74,4 @@ library(ggplot2)
 qplot(wt, mpg, data = mtcars)
 ```
 
---- x:-1500 y:5500
-
 ![plot of chunk unnamed-chunk-2](assets/fig/unnamed-chunk-2-1.png)
-
-
-  
