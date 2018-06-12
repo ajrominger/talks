@@ -32,125 +32,53 @@
  
 </div>
 <div id="hawaii" class="step " 
-  data-x="0" data-y="0"  
+  data-x="0" data-y="2500"  
    
     
     
     data-scale="4">
  
- <pre><code>## OGR data source with driver: ESRI Shapefile 
-## Source: &quot;/Users/ajr/Dropbox/hawaiiDimensions/geoData/env_data/geol&quot;, layer: &quot;Haw_St_geo_20070426_region&quot;
-## with 9862 features
-## It has 15 fields
-## Integer64 fields read as strings:  ID STRAT_CODE AGE_GROUP
-</code></pre>
-
-<pre><code>## Warning in file(file, &quot;rt&quot;): cannot open file &#39;../Haw_St_ageCode.csv&#39;: No
-## such file or directory
-</code></pre>
-
-<pre><code>## Error in file(file, &quot;rt&quot;): cannot open the connection
-</code></pre>
+ <p><img src="assets/fig/hawaii.png" alt="plot of chunk unnamed-chunk-1"></p>
 
 </div>
-<div id="its" class="step " 
-  data-x="850" data-y="3000"  
-    data-rotate="45" 
+<div id="bugs" class="step " 
+  data-x="2500" data-y="-100" data-z="-500" 
+    data-rotate="50" 
     
     
     data-scale="5">
  
- <p>It&#39;s a <strong>presentation tool</strong> <br/>
-inspired by the idea behind <a href="http://prezi.com">prezi.com</a> <br/>
-and based on the <strong>power of CSS3 transforms and transitions</strong> in modern browsers.</p>
+ <p><img src="assets/fig/bugs.png" alt="plot of chunk unnamed-chunk-2"></p>
 
 </div>
-<div id="big" class="step " 
-  data-x="3500" data-y="2100"  
-    data-rotate="180" 
+<div id="theory" class="step " 
+  data-x="6000" data-y="1000" data-z="-1000" 
+    data-rotate="140" 
+    
+    
+    data-scale="5">
+ 
+ <p><img src="assets/fig/mod.png" alt="plot of chunk unnamed-chunk-3"></p>
+
+</div>
+<div id="hypotheses" class="step " 
+  data-x="4500" data-y="3500" data-z="-1500" 
+    data-rotate="230" 
     
     
     data-scale="6">
  
- <p>visualize your <b>big</b> <span class="thoughts">thoughts</span></p>
+ <p><img src="assets/fig/hyp.png" alt="plot of chunk unnamed-chunk-4"></p>
 
 </div>
-<div id="tiny" class="step " 
-  data-x="2825" data-y="2325" data-z="-3000" 
-    data-rotate="300" 
+<div id="db" class="step " 
+  data-x="3500" data-y="2000" data-z="-2000" 
+    data-rotate="320" 
     
     
-    data-scale="1">
+    data-scale="3">
  
- <p>and <strong>tiny</strong> ideas</p>
-
-</div>
-<div id="ing" class="step " 
-  data-x="3500" data-y="-850"  
-    data-rotate="270" 
-    
-    
-    data-scale="6">
- 
- <p>by <b class="positioning">positioning</b>, <b class="rotating">rotating</b> and <b class="scaling">scaling</b> them on an infinite canvas</p>
-
-</div>
-<div id="imagination" class="step " 
-  data-x="6700" data-y="-300"  
-   
-    
-    
-    data-scale="6">
- 
- <p>the only <strong>limit</strong> is your <b class="imagination">imagination</b></p>
-
-</div>
-<div id="source" class="step " 
-  data-x="6300" data-y="2000"  
-    data-rotate="20" 
-    
-    
-    data-scale="4">
- 
- <p>want to know more?</p>
-
-<p><a href="http://github.com/bartaz/impress.js">use the source</a>, Luke</p>
-
-</div>
-<div id="one-more-thing" class="step " 
-  data-x="6000" data-y="4000"  
-   
-    
-    
-    data-scale="2">
- 
- <p>one more thing...</p>
-
-</div>
-<div id="its-in-3d" class="step " 
-  data-x="6200" data-y="4300" data-z="-100" 
-   
-   data-rotate-x="-40" 
-   data-rotate-y="-10" 
-    data-scale="2">
- 
- <p><span class="have">have</span> <span class="you">you</span> <span class="noticed">noticed</span> <span class="its">it&#39;s</span> <span class="in">in</span> <b>3D<sup>*</sup></b>?</p>
-
-<p><span class="footnote">* beat that, prezi ;)</span></p>
-
-</div>
-<div id="rstats" class="step " 
-  data-x="-1000" data-y="5000"  
-   
-    
-    
-   >
- 
- <pre><code class="r">library(ggplot2)
-qplot(wt, mpg, data = mtcars)
-</code></pre>
-
-<p><img src="assets/fig/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2"></p>
+ <p><img src="assets/fig/db_transHalf.png" alt="plot of chunk unnamed-chunk-5"></p>
 
 </div>
  
@@ -176,7 +104,21 @@ qplot(wt, mpg, data = mtcars)
  </script>
  <script src="../libraries/frameworks/impressjs/js/impress.js"></script>
  <script>impress().init();</script>
- <!-- LOAD HIGHLIGHTER JS FILES -->
+ <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+ <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+     tex2jax: {
+       inlineMath: [['$','$'], ['\\(','\\)']],
+       processEscapes: true
+     }
+   });
+ </script>
+ <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+ <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+ </script> -->
+ <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="../libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- LOAD HIGHLIGHTER JS FILES -->
  <script src="../libraries/highlighters/highlight.js/highlight.pack.js"></script>
  <script>hljs.initHighlightingOnLoad();</script>
  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
