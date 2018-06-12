@@ -20,9 +20,15 @@ url:
 --- #theory x:6000 y:1000 z:-1000 rot:140 scale:5
 ![plot of chunk unnamed-chunk-3](assets/fig/mod.png)
 
+--- #theory2 x:10000 y:2000 z:-5000 rot:140 scale:2
+![plot of chunk unnamed-chunk-4](assets/fig/meteHalf.png)
+
+--- #theory3 x:9000 y:3000 z:-5000 rot:140 scale:2
+![plot of chunk unnamed-chunk-5](assets/fig/metabHalf.png)
+
 --- #hypotheses x:4500 y:3500 z:-1500 rot:230 scale:6
-![plot of chunk unnamed-chunk-4](assets/fig/hyp.png)
+![plot of chunk unnamed-chunk-6](assets/fig/hyp.png)
 
 --- #db x:3500 y:2000 z:-2000 rot:320 scale:3
-![plot of chunk unnamed-chunk-5](assets/fig/db_transHalf.png)
+![plot of chunk unnamed-chunk-7](assets/fig/db_trans.png)
 
