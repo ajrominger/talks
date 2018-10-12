@@ -50,11 +50,11 @@ makeBG <- function(id, file)
 }
 ```
 
-## <span style="color: #FFFFFF">Biodiversity</span> {.SlideClass #SlideID name=ThisSlide}
-
+## {.SlideClass #SlideID name=ThisSlide .flexbox .vcenter}
 ```{r results='asis',echo=FALSE}
 makeBG(id='ThisSlide', 'biodiv.jpg')
 ```
+<span style="font-size: 64px; color:#FFFFFF;">Biodiversity</span>
 
 
 
@@ -62,3 +62,9 @@ makeBG(id='ThisSlide', 'biodiv.jpg')
 
 foo
 
+
+## {.flexbox .vcenter}
+<span style="font-size: 64px; color:#515151;">Thanks!</span>
+<br/>
+<br/>
+Slides at [ajrominger.github.io/talks](ajrominger.github.io/talks)
