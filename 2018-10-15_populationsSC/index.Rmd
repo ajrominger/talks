@@ -50,17 +50,53 @@ makeBG <- function(id, file)
 }
 ```
 
+<style>
+foot {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 50px;
+  width: 80%;
+  font-size: 0.6em;
+}
+</style>
+
+<!---
 ## {.SlideClass #SlideID name=ThisSlide .flexbox .vcenter}
+
 ```{r results='asis',echo=FALSE}
-makeBG(id='ThisSlide', 'biodiv.jpg')
+makeBG(id='ThisSlide', 'biodiv.jpg') 
 ```
+ 
 <span style="font-size: 64px; color:#FFFFFF;">Biodiversity</span>
+-->
 
 
+## Biodiversity and ecosystem function
 
-## Biodiversity
+More diversity begets more productivity
 
-foo
+```{r, fig.align='center', fig.width=5, fig.height=4}
+par(mar = c(2, 2, 0, 0) + 0.5, mgp = c(1, 1, 0), cex.lab = 1.4)
+curve(1/(1 + exp(-x)), from = 1, to = 4, lwd = 3,
+      axes = FALSE, frame.plot = TRUE, 
+      xlab = 'Number of species', ylab = 'Ecosystem productivity')
+```
+
+<foot>Reviewed in Duffy (2009) *Front. Ecol. Environ.*</foot>
+
+
+## Biodiversity and ecosystem function
+
+We depend on that productivity
+
+```{r, fig.align='center', fig.width=5, fig.height=4}
+par(mar = c(2, 2, 0, 0) + 0.5, mgp = c(1, 1, 0), cex.lab = 1.4)
+curve(1/(1 + exp(-x)), from = 1, to = 4, lwd = 3,
+      axes = FALSE, frame.plot = TRUE, 
+      xlab = 'Number of species', ylab = 'Ecosystem productivity')
+```
+
+<foot>Reviewed in Duffy (2009) *Front. Ecol. Environ.*</foot>
 
 
 ## {.flexbox .vcenter}
