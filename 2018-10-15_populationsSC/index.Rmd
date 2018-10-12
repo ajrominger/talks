@@ -10,27 +10,55 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+library(knitr)
+opts_chunk$set(echo = FALSE)
+```
+
+```{css}
+slide {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+```
+
+```{r deps, include=FALSE}
+# this ensures jquery is loaded
+dep <- htmltools::htmlDependency(name = "jquery", version = "1.11.3", 
+                                 src = system.file("rmd/h/jquery-1.11.3", package='rmarkdown'), 
+                                 script = "jquery.min.js")
+htmltools::attachDependencies(htmltools::tags$span(''), dep)
+```
+
+```{js move-id-background-color}
+$(document).ready(function(){
+    // for every article tag inside a slide tag
+    $("slide > article").each(function(){
+        // copy the article name to the parentNode's (the slide) ID
+        this.parentNode.id=$(this).attr('name');
+    });
+});
+```
+
+```{r background-function,include=FALSE}
+makeBG <- function(id, file)
+{
+    cat(
+        sprintf('<style type="text/css">\n#%s {\nbackground-image: url(%s);\n}\n</style>',
+                id, knitr::image_uri(file))
+    )
+}
+```
+
+## <span style="color: #FFFFFF">Biodiversity</span> {.SlideClass #SlideID name=ThisSlide}
+
+```{r results='asis',echo=FALSE}
+makeBG(id='ThisSlide', 'biodiv.jpg')
 ```
 
 
-## <span style="color: #FFFFFF">Maximum Entropy</span>
-```{r, fig.height=3, fig.width=3, fig.align='center'}
-par(mar = c(3, 3, 0, 0), mgp = c(1, 0, 0))
-curve(dgamma(x, 3, 1), from = 0, to = 10, xlab = 'x', ylab = 'Probability', 
-      axes = FALSE, frame.plot = TRUE, lwd = 4, col = 'gray25')
-```
 
-## The Future
+## Biodiversity
 
-- *pika* package to integrate quantitative macroecology
-    - standardized goodness of fit
-    - more than just SAD, SAR, metabolism
-    - will be on CRAN and module in *Wallace*
-- *meteR* (and/or *pika*) to facilitate self-publishing of data and analyses
+foo
 
-## {.flexbox .vcenter}
-<span style="font-size: 64px; color:#515151;">Thanks!</span>
-<br/>
-<br/>
-[ajrominger.github.io](ajrominger.github.io)
