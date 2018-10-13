@@ -330,7 +330,7 @@ curve(dnorm(x), from = -2, to = 2)
 - assisted migration
 - loss of evolutionary history
 
-## Where are all the extinctions
+## Where are all the extinctions?
 - extinction debt
 - non-equilibrium
 - spatial configuration
@@ -345,8 +345,12 @@ curve(dnorm(x), from = -2, to = 2)
 
 
 
+## Bibliography and useful readings
+
+
 ## {.flexbox .vcenter}
 <span style="font-size: 64px; color:#515151;">Thanks!</span>
 <br/>
 <br/>
 Slides at [ajrominger.github.io/talks](ajrominger.github.io/talks)
+
