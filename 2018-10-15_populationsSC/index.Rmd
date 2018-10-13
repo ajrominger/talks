@@ -175,6 +175,121 @@ box()
 <foot>Diamond</foot>
 
 
+## Area and isolation
+
+A long precedent for viewing habitat fragments as islands
+
+```{r, fig.width=6, fig.height=4.25, fig.align='center'}
+ab <- function(a, b) {
+    if(missing(a)) return(exp(b - 1))
+    if(missing(b)) return(1 + log(a))
+}
+
+imm <- function(x, a, b) {
+    if(missing(a)) a <- ab(b = b)
+    if(missing(b)) b <- ab(a = a)
+    
+    return(a * exp(-b*x))
+}
+
+ext <- function(x, a, b) {
+    if(missing(a)) a <- ab(b = b)
+    if(missing(b)) b <- ab(a = a)
+    
+    return(a * exp(b*(x - 1)))
+}
+
+Shat <- function(a_imm, a_ext) {
+    b_imm <- ab(a = a_imm)
+    b_ext <- ab(a = a_ext)
+    
+    return((log(a_imm) - log(a_ext) + b_ext) / (b_ext + b_imm))
+}
+
+macWilson <- function(a_imm, a_ext, i) {
+    curve(imm(x, a_imm), add = TRUE, from = 0.3, to = 0.7, col = 'blue', lwd = 2)
+    curve(ext(x, a_ext), add = TRUE, from = 0.3, to = 0.7, col = 'red', lwd = 2)
+    
+    segments(x0 = Shat(a_imm, a_ext), y0 = par('usr')[1], y1 = imm(Shat(a_imm, a_ext), a_imm),
+             col='gray')
+    
+    axis(1, at = Shat(a_imm, a_ext), labels = eval(bquote(expression(hat(S)[.(i)]))))
+}
+
+areas <- c(10, 100, 1000)
+z <- 0.25
+a <- exp(areas^-z)
+
+par(mar = c(3.5, 2, 0, 0)+0.1, cex.lab = 1.5, mgp = c(2.25, 1, 0))
+plot(1, type = 'n', xlim = c(0.22, 0.78), ylim = c(imm(0.7, a = a[3]), imm(0.3, a = a[1]) * 1.025), 
+     axes = FALSE, frame.plot = TRUE, xlab = 'Number of species', ylab = '')
+
+text(c(0.33, 0.67), c(1.05, 1.05), labels=c('Immigration', 'Extinction'),
+     col=c('blue', 'red'), cex=1.5, pos=c(4, 2))
+
+mtext('Rate', side=2, line=0.75, cex=1.5)
+
+macWilson(a[1], a[1], 'j')
+```
+
+<foot>macWilson</foot>
+
+
+## Area and isolation
+
+A long precedent for viewing habitat fragments as islands
+
+```{r, fig.width=6, fig.height=4.25, fig.align='center'}
+par(mar = c(3.5, 2, 0, 0)+0.1, cex.lab = 1.5, mgp = c(2.25, 1, 0))
+plot(1, type = 'n', xlim = c(0.22, 0.78), ylim = c(imm(0.7, a = a[3]), imm(0.3, a = a[1]) * 1.025), 
+     axes = FALSE, frame.plot = TRUE, xlab = 'Number of species', ylab = '')
+
+text(c(0.33, 0.67), c(1.05, 1.05), labels=c('Immigration', 'Extinction'),
+     col=c('blue', 'red'), cex=1.5, pos=c(4, 2))
+
+mtext('Rate', side = 2, line=0.75, cex=1.5)
+
+macWilson(a[1], a[1], 'j')
+macWilson(a[3], a[1], 'i')
+
+arrows(x0=0.25, y0=imm(0.3, a[1]), y1=imm(0.3, a[3]), col=hsv(0.6, 0.7), lwd=6, length=0.1)
+text(0.25, mean(imm(0.3, a[c(1, 3)])), labels='Increasing isolation', 
+     srt=90, adj=c(0.5, -1), col='blue', cex = 1.25)
+```
+
+<foot>macWilson</foot>
+
+
+## Area and isolation
+
+A long precedent for viewing habitat fragments as islands
+
+```{r, fig.width=6, fig.height=4.25, fig.align='center'}
+par(mar = c(3.5, 2, 0, 0)+0.1, cex.lab = 1.5, mgp = c(2.25, 1, 0))
+plot(1, type = 'n', xlim = c(0.22, 0.78), ylim = c(imm(0.7, a = a[3]), imm(0.3, a = a[1]) * 1.025), 
+     axes = FALSE, frame.plot = TRUE, xlab = 'Number of species', ylab = '')
+
+text(c(0.33, 0.67), c(1.05, 1.05), labels=c('Immigration', 'Extinction'),
+     col=c('blue', 'red'), cex=1.5, pos=c(4, 2))
+
+mtext('Rate', side=2, line=0.75, cex=1.5)
+
+macWilson(a[1], a[1], 'j')
+macWilson(a[3], a[1], 'i')
+macWilson(a[1], a[3], 'k')
+
+arrows(x0=0.25, y0=imm(0.3, a[1]), y1=imm(0.3, a[3]), col=hsv(0.6, 0.7), lwd=6, length=0.1)
+text(0.25, mean(imm(0.3, a[c(1, 3)])), labels='Increasing isolation', 
+     srt=90, adj=c(0.5, -1), col='blue', cex=1.25)
+
+arrows(x0=0.75, y0=ext(0.7, a[1]), y1=ext(0.7, a[3]), col=hsv(0, 0.5), lwd=6, length=0.1)
+text(0.75, mean(ext(0.7, a[c(1, 3)])), labels='Increasing area', 
+     srt=90, adj=c(0.5, 1.5), col='red', cex=1.25)
+```
+
+<foot>macWilson</foot>
+
+
 ## Open questions
 
 - Is biodiversity driven by reversible or irriversible processes?
