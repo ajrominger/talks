@@ -1,0 +1,23 @@
+# Anthropogenic change and biodiversity
+
+- Biodiversity: beautiful and essential
+    - biodiversity ethics (?)
+    - biodiversity and ecosystem function
+    - ecosystem services
+- Possibility of tipping points
+    - often tied to area co-opted by human activities
+- Island biogeography theory
+- Species area relationship
+    - in practice?
+    - METE?
+- Applications of IBT and SAR to conservation
+    - SLOSS as a dead end
+    - evolutionary novelty
+- Where are all the extinctions?
+    - extinction debt
+    - spatial configuration
+    - false dichotomy between human use and nature
+- Open questions
+    - resource limited or "network" limited?
+    - is biodiversity driven by reversible or irreversible processes?
+    - extent of dichotomy between humans and nature
