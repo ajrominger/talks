@@ -1,7 +1,7 @@
 ---
 title: "Anthropogenic change and biodiversity"
 author: "Andrew J. Rominger"
-date: "15 October 2018"
+date: "16 October 2018"
 output: 
     ioslides_presentation:
         css: styles.css
@@ -11,7 +11,7 @@ output:
 
 ```{r setup, include=FALSE}
 library(knitr)
-opts_chunk$set(echo = FALSE)
+opts_chunk$set(echo = FALSE, message = FALSE)
 ```
 
 ```{css}
@@ -68,7 +68,6 @@ makeBG(id='ThisSlide', 'biodiv.jpg')
 ```
  
 <span style="font-size: 64px; color:#FFFFFF;">Biodiversity</span>
--->
 
 
 ## Biodiversity and ecosystem function
@@ -89,14 +88,96 @@ curve(1/(1 + exp(-x)), from = 1, to = 4, lwd = 3,
 
 We depend on that productivity
 
-```{r, fig.align='center', fig.width=5, fig.height=4}
-par(mar = c(2, 2, 0, 0) + 0.5, mgp = c(1, 1, 0), cex.lab = 1.4)
-curve(1/(1 + exp(-x)), from = 1, to = 4, lwd = 3,
-      axes = FALSE, frame.plot = TRUE, 
-      xlab = 'Number of species', ylab = 'Ecosystem productivity')
+```{r, fig.align='center', fig.width=4.5, fig.height=4.5}
+library(igraph)
+
+x <- read.table('eco_service_net.txt', header = TRUE, row.names = 1, sep = '\t')
+x[is.na(x)] <- 0
+x <- as.matrix(x)
+colnames(x) <- rownames(x) <- gsub(' ', '\n', rownames(x))
+
+g <- graph_from_adjacency_matrix(x)
+nv <- length(V(g))
+
+l <- cbind(c(cos(seq(0, 2*pi - pi/10, length.out = nv - 1)), 0), 
+           c(sin(seq(0, 2*pi - pi/10, length.out = nv - 1)), 0))
+
+par(mar = rep(0, 4))
+plot(g, 
+     vertex.label.color = 'white', 
+     vertex.size = 25, 
+     vertex.color = c(rep(hsv(0.4, 0.4, 0.7), nv - 1), hsv(0.6, 0.8, 0.8)), 
+     vertex.label.cex = 0.5, 
+     edge.arrow.size = 0.5, 
+     layout = l)
 ```
 
-<foot>Reviewed in Duffy (2009) *Front. Ecol. Environ.*</foot>
+<foot>Millennium Assessment Board (2005). *Millennium Ecosystem Assessment*</foot>
+-->
+
+## Biodiversity and ecosystem function
+
+Are we irriversibly altering biodiversity and ecosystems?
+
+```{r, fig.width=5, fig.align='center', out.width='500px'}
+include_graphics('barnosky.png')
+```
+
+<foot>Barnosky et al. (2012). *Nature*</foot>
+
+
+## Biodiversity and ecosystem function {}
+
+Are we irriversibly altering biodiversity and ecosystems?
+
+```{r, fig.width=5, fig.align='center', out.width='500px'}
+include_graphics('Oil_palm_forest_fragment_Costa_Rica.JPG')
+```
+
+40% land conversion globally
+
+<foot>Barnosky et al. (2012) *Nature;* Foley et al. (2005) *Nature*</foot>
+
+
+## Area and isolation
+
+A long precedent for viewing habitat fragments as islands
+
+```{r, fig.width=6, fig.height=4, fig.align='center'}
+islandOutline <- function(x, y, R, ...) {
+    n <- 25
+    r <- rnorm(n, 0, 0.25)
+    r <- (r - min(r) + 1) * R
+    
+    a <- seq(0, 2 * pi - 2 * pi / n, length.out = n)
+    
+    polygon(spline(1:n, cos(a) * r + x, xout = seq(1, n, length.out = 100))$y, 
+            spline(1:n, sin(a) * r + y, xout = seq(1, n, length.out = 100))$y, 
+            ...)
+}
+
+par(mar = rep(0, 4))
+plot(1:20, type = 'n', axes = FALSE)
+
+set.seed(3)
+islandOutline(3.5, 5, 2, col = hsv(0.425, 0.7, 0.8))
+islandOutline(6, 15, 1.25, col = hsv(0.35, 0.4, 0.8))
+set.seed(1)
+islandOutline(23, 13, 8, col = hsv(0.45, 0.7, 0.7))
+
+text(c(3.5, 6, 16), c(5, 15, 16), 
+     labels = c('"island"', '"island"', '"mainland"'), 
+     col = 'white', cex = 1.2)
+
+box()
+```
+
+<foot>Diamond</foot>
+
+
+## Open questions
+
+- Is biodiversity driven by reversible or irriversible processes?
 
 
 ## {.flexbox .vcenter}
