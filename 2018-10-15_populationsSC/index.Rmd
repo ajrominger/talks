@@ -60,7 +60,7 @@ foot {
 }
 </style>
 
-<!---
+
 ## {.SlideClass #SlideID name=ThisSlide .flexbox .vcenter}
 
 ```{r results='asis',echo=FALSE}
@@ -113,11 +113,11 @@ plot(g,
 ```
 
 <foot>Millennium Assessment Board (2005). *Millennium Ecosystem Assessment*</foot>
--->
+
 
 ## Biodiversity and ecosystem function
 
-Are we irriversibly altering biodiversity and ecosystems?
+Are we irreversibly altering biodiversity and ecosystems?
 
 ```{r, fig.width=5, fig.align='center', out.width='500px'}
 include_graphics('barnosky.png')
@@ -128,7 +128,7 @@ include_graphics('barnosky.png')
 
 ## Biodiversity and ecosystem function {}
 
-Are we irriversibly altering biodiversity and ecosystems?
+Are we irreversibly altering biodiversity and ecosystems?
 
 ```{r, fig.width=5, fig.align='center', out.width='500px'}
 include_graphics('Oil_palm_forest_fragment_Costa_Rica.JPG')
@@ -177,7 +177,7 @@ box()
 
 ## Area and isolation
 
-A long precedent for viewing habitat fragments as islands
+Equilibrium island biogeography theory
 
 ```{r, fig.width=6, fig.height=4.25, fig.align='center'}
 ab <- function(a, b) {
@@ -237,7 +237,7 @@ macWilson(a[1], a[1], 'j')
 
 ## Area and isolation
 
-A long precedent for viewing habitat fragments as islands
+Equilibrium island biogeography theory
 
 ```{r, fig.width=6, fig.height=4.25, fig.align='center'}
 par(mar = c(3.5, 2, 0, 0)+0.1, cex.lab = 1.5, mgp = c(2.25, 1, 0))
@@ -262,7 +262,7 @@ text(0.25, mean(imm(0.3, a[c(1, 3)])), labels='Increasing isolation',
 
 ## Area and isolation
 
-A long precedent for viewing habitat fragments as islands
+Equilibrium island biogeography theory
 
 ```{r, fig.width=6, fig.height=4.25, fig.align='center'}
 par(mar = c(3.5, 2, 0, 0)+0.1, cex.lab = 1.5, mgp = c(2.25, 1, 0))
@@ -290,9 +290,59 @@ text(0.75, mean(ext(0.7, a[c(1, 3)])), labels='Increasing area',
 <foot>macWilson</foot>
 
 
+## Area and isolation
+
+Species area relationship $\hat{S} = f(A)$
+
+```{r, fig.width=5, fig.height=4.25, fig.align='center'}
+areas <- 10^seq(0, 5, length.out = 10)
+z <- 0.25
+a <- exp(areas^-z)
+
+par(mar = c(2, 2, 0, 0) + 0.5, mgp = c(1, 1, 0))
+plot(areas, Shat(a[1], a), log = 'xy', axes = FALSE, frame.plot = TRUE, 
+     cex = 2, pch = 16, cex.lab = 1.5,
+     xlab = 'Area', ylab = 'Species')
+```
+
+
+## Area and isolation
+
+Human activity and area: direct conversion
+
+```{r, fig.width=5, fig.align='center', out.width='500px'}
+include_graphics('Oil_palm_forest_fragment_Costa_Rica.JPG')
+```
+
+
+## Area and isolation
+
+Human activity and area: climate change
+
+```{r, fig.width=5, fig.align='center', out.width='500px'}
+curve(dnorm(x), from = -2, to = 2)
+```
+
+
+## Island biogeography in biodiversity conservation
+
+- SLOSS
+- assisted migration
+- loss of evolutionary history
+
+## Where are all the extinctions
+- extinction debt
+- non-equilibrium
+- spatial configuration
+- false dichotomy between social and natural systems
+
 ## Open questions
 
-- Is biodiversity driven by reversible or irriversible processes?
+- does the BEF relationship asymptote out?
+- resource limited or "network" limited?
+- is biodiversity driven by reversible or irreversible processes?
+- extent of dichotomy between humans and nature?
+
 
 
 ## {.flexbox .vcenter}
