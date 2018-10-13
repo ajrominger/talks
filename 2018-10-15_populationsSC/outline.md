@@ -1,5 +1,15 @@
 # Anthropogenic change and biodiversity
 
+## Learning outcomes
+Students will:
+- have exposure to ideas of habitat area, in theory and practice, as it relates to anthropogenic drivers and conservation
+- have a sense that tipping points in biodiversity and ecosystems are possible, but we don't understand them
+- have a sense that historical approaches have made false presumptions about ecological mechanisms and social-natural relationships/dichotomies
+- know how to begin in incorporate insights from ecology into their research
+
+
+## Outline
+
 - Biodiversity: beautiful and essential
     - biodiversity ethics (?)
     - biodiversity and ecosystem function
