@@ -2,6 +2,8 @@
 title: "Anthropogenic change and biodiversity"
 author: "Andrew J. Rominger"
 date: "16 October 2018"
+header-includes:
+   - \usepackage{xcolor}
 output: 
     ioslides_presentation:
         css: styles.css
@@ -70,9 +72,27 @@ makeBG(id='ThisSlide', 'biodiv.jpg')
 <span style="font-size: 64px; color:#FFFFFF;">Biodiversity</span>
 
 
+##
+```{r, out.width='600px', fig.align='center'}
+include_graphics('barnosky_extinction_title.png')
+```
+<br/>
+```{r, out.width='450px', fig.align='center'}
+include_graphics('barnosky_extinction.png')
+```
+
+
+## Open questions
+- BEF
+- interaction mechanisms
+- reversible irriversible
+- equilibrium or not
+- dichtomy
+
+
 ## Biodiversity and ecosystem function
 
-More diversity begets more productivity
+Diversity begets productivity
 
 ```{r, fig.align='center', fig.width=5, fig.height=4}
 par(mar = c(2, 2, 0, 0) + 0.5, mgp = c(1, 1, 0), cex.lab = 1.4)
@@ -86,7 +106,22 @@ curve(1/(1 + exp(-x)), from = 1, to = 4, lwd = 3,
 
 ## Biodiversity and ecosystem function
 
-We depend on that productivity
+Diversity begets stability
+
+```{r, fig.align='center', fig.width=5, fig.height=4}
+par(mar = c(2, 2, 0, 0) + 0.5, mgp = c(1, 1, 0), cex.lab = 1.4)
+curve(exp(-x), from = 1, to = 4, lwd = 3,
+      axes = FALSE, frame.plot = TRUE, 
+      xlab = 'Number of species', ylab = 'Recovery rate after perterbation')
+```
+
+<foot>Reviewed in Duffy (2009) *Front. Ecol. Environ.*</foot>
+
+
+## Biodiversity and ecosystem function
+
+We depend on that productivity and stability
+<!--- HARD TO SEE!!!!! -->
 
 ```{r, fig.align='center', fig.width=4.5, fig.height=4.5}
 library(igraph)
@@ -126,7 +161,7 @@ include_graphics('barnosky.png')
 <foot>Barnosky et al. (2012). *Nature*</foot>
 
 
-## Biodiversity and ecosystem function {}
+## Biodiversity and ecosystem function
 
 Are we irreversibly altering biodiversity and ecosystems?
 
@@ -292,9 +327,72 @@ text(0.75, mean(ext(0.7, a[c(1, 3)])), labels='Increasing area',
 
 ## Area and isolation
 
+Human activity: direct conversion
+
+```{r, fig.width=5, fig.align='center', out.width='500px'}
+include_graphics('Oil_palm_forest_fragment_Costa_Rica.JPG')
+```
+
+
+## Area and isolation
+
+Human activity: climate change
+
+```{r, fig.width=5, fig.align='center', fig.width=5, fig.height=4}
+elev <- function(x) {
+    dnorm(x, -1, sd = 1.5) + 0.2 * dnorm(x, 2, sd = 0.5)
+}
+
+
+# elevCrit <- 0.15
+xCrit <- function(e, range) {
+    uniroot(function(x) elev(x) - e, range)$root
+}
+
+elevCrit1 <- 0.1
+elevCrit2 <- 0.15
+x1 <- seq(xCrit(elevCrit1, c(-4, 0)), xCrit(elevCrit1, c(0, 3)), length.out = 100)
+y1 <- elev(x1)
+
+x21 <- seq(xCrit(elevCrit2, c(-4, -1)), xCrit(elevCrit2, c(-1, 1)), length.out = 50)
+x22 <- seq(xCrit(elevCrit2, c(1, 2)), xCrit(elevCrit2, c(2, 3)), length.out = 50)
+y21 <- elev(x21)
+y22 <- elev(x22)
+
+
+par(mar = rep(0, 4))
+curve(elev(x), from = -4, to = 3, xlab = '', ylab ='', axes = FALSE)
+polygon(x1, y1, col = 'gray')
+```
+
+## Area and isolation
+
+Human activity: climate change
+
+```{r, fig.width=5, fig.align='center', fig.width=5, fig.height=4}
+elevCrit1 <- 0.1
+elevCrit2 <- 0.15
+x1 <- seq(xCrit(elevCrit1, c(-4, 0)), xCrit(elevCrit1, c(0, 3)), length.out = 100)
+y1 <- elev(x1)
+
+x21 <- seq(xCrit(elevCrit2, c(-4, -1)), xCrit(elevCrit2, c(-1, 1)), length.out = 50)
+x22 <- seq(xCrit(elevCrit2, c(1, 2)), xCrit(elevCrit2, c(2, 3)), length.out = 50)
+y21 <- elev(x21)
+y22 <- elev(x22)
+
+par(mar = rep(0, 4))
+curve(elev(x), from = -4, to = 3, xlab = '', ylab ='', axes = FALSE)
+polygon(x1, y1, col = 'gray')
+polygon(x21, y21, col = 'gray25')
+polygon(x22, y22, col = 'gray25')
+```
+
+
+## Area and isolation
+
 Species area relationship $\hat{S} = f(A)$
 
-```{r, fig.width=5, fig.height=4.25, fig.align='center'}
+```{r, fig.width=5, fig.height=4, fig.align='center'}
 areas <- 10^seq(0, 5, length.out = 10)
 z <- 0.25
 a <- exp(areas^-z)
@@ -307,28 +405,23 @@ plot(areas, Shat(a[1], a), log = 'xy', axes = FALSE, frame.plot = TRUE,
 
 
 ## Area and isolation
+Species extinctions: $\hat{S}_\text{new} = \hat{S}(A_\text{orig} - A_\text{loss})$
 
-Human activity and area: direct conversion
+$\Rightarrow \hat{S}_\text{extinct} = \hat{S}(A_\text{orig}) - \hat{S}(A_\text{orig} - A_\text{loss})$
 
-```{r, fig.width=5, fig.align='center', out.width='500px'}
-include_graphics('Oil_palm_forest_fragment_Costa_Rica.JPG')
+```{r, fig.width=5, fig.height=4, fig.align='center'}
+areas <- 10^seq(0, 5, length.out = 10)
+z <- 0.25
+a <- exp(areas^-z)
+
+par(mar = c(2, 2, 0, 0) + 0.5, mgp = c(1, 1, 0))
+plot(areas, Shat(a[1], a), log = 'xy', axes = FALSE, frame.plot = TRUE, 
+     cex = 2, pch = 16, cex.lab = 1.5,
+     xlab = 'Area', ylab = 'Species')
 ```
 
 
-## Area and isolation
 
-Human activity and area: climate change
-
-```{r, fig.width=5, fig.align='center', out.width='500px'}
-curve(dnorm(x), from = -2, to = 2)
-```
-
-
-## Island biogeography in biodiversity conservation
-
-- SLOSS
-- assisted migration
-- loss of evolutionary history
 
 ## Where are all the extinctions?
 - extinction debt
@@ -337,6 +430,8 @@ curve(dnorm(x), from = -2, to = 2)
 - false dichotomy between social and natural systems
 
 ## Open questions
+
+**start with this!**
 
 - does the BEF relationship asymptote out?
 - resource limited or "network" limited?
