@@ -118,6 +118,7 @@ plot(g,
 
 ## Open questions
 - How much biodiversity is requiered to provision services?
+- How does the current extinction rate compare to background extinction?
 - Are changes to biodiversity largely reversible or irriversible?
 - Is the biodiversity in any given ecosystem in equilibrium or not?
 - How severe is the trade-off between human use of natural resources versus biodiversity?
