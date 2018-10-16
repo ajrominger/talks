@@ -473,9 +473,11 @@ mtext('Time', side = 1, line = 1.75, cex = 1.4)
 Losing evolutionary history
 
 ```{r, fig.width=5, fig.height=4, fig.align='center'}
+##### better colors ######
 clades <- tre$tip.label
 clades <- clades[!(clades %in% c('t4', 't19', 't17'))]
-cols <- cladeCol(tre, clades = list('t4', c('t19', 't17'), clades), cols = c('red', 'red', 'black'))
+cols <- cladeCol(tre, clades = list('t4', c('t19', 't17'), clades), 
+                 cols = c(hsv(s = 0.25), hsv(s = 0.25), 'black'))
 
 par(mar = c(3.5, 0, 0, 0))
 plot(tre, edge.color = cols, edge.width = 3, show.tip.label = FALSE)
@@ -491,7 +493,8 @@ Losing evolutionary history
 ```{r, fig.width=5, fig.height=4, fig.align='center'}
 clades <- tre$tip.label
 clades <- clades[!(clades %in% c('t15', 't2', 't1'))]
-cols <- cladeCol(tre, clades = list('t15', c('t2', 't1'), clades), cols = c('red', 'red', 'black'))
+cols <- cladeCol(tre, clades = list('t15', c('t2', 't1'), clades), 
+                 cols = c(hsv(s = 0.25), hsv(s = 0.25), 'black'))
 
 par(mar = c(3.5, 0, 0, 0))
 plot(tre, edge.color = cols, edge.width = 3, show.tip.label = FALSE)
