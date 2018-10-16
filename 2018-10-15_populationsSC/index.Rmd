@@ -64,6 +64,8 @@ foot {
 
 <!--- ######## START OF TALK ######## -->
 
+
+
 ## {.SlideClass #SlideID name=ThisSlide .flexbox .vcenter}
 
 ```{r results='asis',echo=FALSE}
@@ -498,6 +500,7 @@ Species extinctions: $\hat{S}_\text{new} = \hat{S}(A_\text{orig} - A_\text{loss}
 
 $\Rightarrow \hat{S}_\text{extinct} = \hat{S}(A_\text{orig}) - \hat{S}(A_\text{orig} - A_\text{loss})$
 
+
 ```{r, fig.width=5, fig.height=4, fig.align='center'}
 areas <- 10^seq(0, 5, length.out = 10)
 z <- 0.25
@@ -518,11 +521,163 @@ plot(areas, Shat(a[1], a), log = 'xy', axes = FALSE, frame.plot = TRUE,
 <!-- METE and equilib -->
 <!-- extinction predictions, e.g. NA birds -->
 
+## Area and extinction 
+
+```{r, out.width='650px', fig.align='center'}
+include_graphics('pimm_extinction_title.png')
+```
+<br/>
+<div class="columns-2">
+```{r, out.width='350px', fig.align='center'}
+include_graphics('pimm_extinction.png')
+```
+
+
+- Assumes:
+    - 200 bird species
+    - $S = cA^{0.25}$
+- Predicts 32 extinctions 
+- 4 extinctions observed
+</div>
+
 ## Where are all the extinctions?
-- extinction debt
-- non-equilibrium
-- spatial configuration
-- false dichotomy between social and natural systems
+
+
+## Where are all the extinctions?
+
+Extinction debt
+```{r, fig.width=6, fig.height=4.25, fig.align='center'}
+areas <- c(10, 100, 1000)
+z <- 0.25
+a <- exp(areas^-z)
+
+par(mar = c(3.5, 2, 0, 0)+0.1, cex.lab = 1.5, mgp = c(2.25, 1, 0))
+plot(1, type = 'n', xlim = c(0.22, 0.78), 
+     ylim = c(imm(0.7, a = a[3]), imm(0.3, a = a[1]) * 1.025), 
+     axes = FALSE, frame.plot = TRUE, xlab = 'Number of species', ylab = '')
+
+text(c(0.33, 0.67), c(1.05, 1.05), labels=c('Immigration', 'Extinction'),
+     col=c('blue', 'red'), cex=1.5, pos=c(4, 2))
+
+mtext('Rate', side=2, line=0.75, cex=1.5)
+
+macWilson(a[1], a[1], 'j')
+macWilson(a[1], a[3], 'k')
+
+arrows(x0 = 0.75, y1 = ext(0.7, a[1]), y0 = ext(0.7, a[3]), col=hsv(0, 0.5), lwd=6, length=0.1)
+text(0.75, mean(ext(0.7, a[c(1, 3)])), labels='Decreasing area', 
+     srt=90, adj=c(0.5, 1.5), col='red', cex=1.25)
+```
+
+<foot>MacArthur & Wilson (1976) *The theory of island biogeography*</foot>
+
+
+## Where are all the extinctions?
+
+Extinction debt
+```{r, fig.width=5, fig.height=4.5, fig.align='center'}
+graphics::layout(matrix(3:1, ncol = 1))
+par(mar = c(0, 3, 0, 0) + 0.25, oma = c(3.25, 0, 0, 0), mgp = c(1, 1, 0), cex.lab = 1.5)
+
+plot(1, xlim = c(-5, 5), ylim = c(0, 1), xlab = '', ylab = 'Area', 
+     axes = FALSE, type = 'n')
+abline(v = 0, lwd = 5, col = 'gray')
+box()
+
+segments(-5, 0.75, 0, 0.75, lwd = 3)
+segments(0, 0.75, 0, 0.25, lwd = 3)
+segments(0, 0.25, 5, 0.25, lwd = 3)
+
+mtext('Time', side = 1, outer = TRUE, line = 1)
+
+
+plot(1, xlim = c(-5, 5), ylim = c(0, 1.15), xlab = '', ylab = 'Extinction rate', 
+     axes = FALSE, type = 'n')
+abline(v = 0, lwd = 5, col = 'gray')
+box()
+
+segments(-5, 0.25, 0, 0.25, lwd = 3)
+segments(0, 0.25, 0, 0.5, lwd = 3)
+curve(1/(1 + exp(-x)), from = 0, add = TRUE, lwd = 3)
+
+
+plot(1, xlim = c(-2, 2), ylim = c(0, 1), xlab = '', ylab = 'Species', 
+     axes = FALSE, type = 'n')
+abline(v = 0, lwd = 5, col = 'gray')
+box()
+
+segments(-2, 1, 0, 1, lwd = 3)
+curve(exp(-x), from = 0, add = TRUE, lwd = 3)
+```
+
+<foot>Reviewed in Kuussaari et al. (2009) *TREE*</foot>
+
+
+## Where are all the extinctions?
+
+Extinction debt: species interactions
+
+<div class="columns-2">
+```{r, out.width='350px', fig.align='right'}
+include_graphics('eremotherium.jpg')
+```
+
+<br/>
+<br/>
+<br/>
+
+```{r, out.width='350px', fig.align='left'}
+include_graphics('mora_seed.jpg')
+```
+<br/>
+
+Extinct in 26,600 years
+
+</div>
+
+<foot>Doughty et al. (2016) *Ecography*</foot>
+
+
+
+## Where are all the extinctions?
+
+Spatial configuration
+
+<div class="columns-2">
+
+</div>
+
+## Where are all the extinctions?
+
+False dichotomy between social and natural systems
+
+```{r, out.width='800px', fig.align='center'}
+include_graphics('aerial-agriculture.jpg')
+```
+
+Ecosystems used by humans are not inhospitable "oceans"
+
+
+## Where are all the extinctions?
+
+Especially when human use is diverse
+
+```{r, out.width='600px', fig.align='center'}
+include_graphics('mendenhall_setup.png')
+```
+
+<foot>Mendenhall et al. (2014) *Nature*</foot>
+
+
+## Where are all the extinctions?
+
+Especially when human use is diverse
+
+```{r, out.width='400px', fig.align='center'}
+include_graphics('mendenhall_result.png')
+```
+
+<foot>Mendenhall et al. (2014) *Nature*</foot>
 
 
 ## Biodiversity and human life
@@ -556,18 +711,17 @@ plot(g,
 <foot>Millennium Assessment Board (2005). *Millennium Ecosystem Assessment*</foot>
 
 
-## Ways to incorperate in your research
+## Biodiversity and human life {.flexbox .vcenter}
 
-Imagine a model linking biodiversity to ecosystem to human population and back again--hasn't been done to my knowledge, would be cool to do
+<span>What would a minimum model of human demographics and biodiversity feedbacks look like?</span>
 
-<!-- maybe justin's biodiv footprint -->
 
 ## Bibliography and useful readings
 
-
+<!---
 ## {.flexbox .vcenter}
 <span style="font-size: 64px; color:#515151;">Thanks!</span>
 <br/>
 <br/>
 Slides at [ajrominger.github.io/talks](ajrominger.github.io/talks)
-
+-->
