@@ -667,14 +667,95 @@ segments(0, 0.25, 5, 0.25, lwd = 3)
 mtext('Time', side = 1, outer = TRUE, line = 1)
 
 
-plot(1, xlim = c(-5, 5), ylim = c(0, 1.15), xlab = '', ylab = 'Extinction rate', 
+plot(1, xlim = c(-5, 5), ylim = c(0, 1.15), xlab = '', ylab = '', 
+     axes = FALSE, type = 'n')
+# abline(v = 0, lwd = 5, col = 'gray')
+# box()
+# 
+# segments(-5, 0.25, 0, 0.25, lwd = 3)
+# segments(0, 0.25, 0, 0.5, lwd = 3)
+# curve(1/(1 + exp(-x)), from = 0, add = TRUE, lwd = 3)
+
+
+plot(1, xlim = c(-2, 2), ylim = c(0, 1), xlab = '', ylab = '', 
+     axes = FALSE, type = 'n')
+# abline(v = 0, lwd = 5, col = 'gray')
+# box()
+# 
+# segments(-2, 1, 0, 1, lwd = 3)
+# curve(exp(-x), from = 0, add = TRUE, lwd = 3)
+```
+
+<foot>Reviewed in Kuussaari et al. (2009) *TREE*</foot>
+
+## Where are all the extinctions?
+
+Extinction debt
+```{r, fig.width=5, fig.height=4.5, fig.align='center'}
+graphics::layout(matrix(3:1, ncol = 1))
+par(mar = c(0, 3, 0, 0) + 0.25, oma = c(3.25, 0, 0, 0), mgp = c(1, 1, 0), cex.lab = 1.5)
+
+plot(1, xlim = c(-5, 5), ylim = c(0, 1), xlab = '', ylab = 'Area', 
+     axes = FALSE, type = 'n')
+abline(v = 0, lwd = 5, col = 'gray')
+box()
+
+segments(-5, 0.75, 0, 0.75, lwd = 3)
+segments(0, 0.75, 0, 0.25, lwd = 3)
+segments(0, 0.25, 5, 0.25, lwd = 3)
+
+mtext('Time', side = 1, outer = TRUE, line = 1)
+
+
+plot(1, xlim = c(-5, 5), ylim = c(-0.1, 2), xlab = '', ylab = 'Extinction rate', 
      axes = FALSE, type = 'n')
 abline(v = 0, lwd = 5, col = 'gray')
 box()
 
 segments(-5, 0.25, 0, 0.25, lwd = 3)
-segments(0, 0.25, 0, 0.5, lwd = 3)
-curve(1/(1 + exp(-x)), from = 0, add = TRUE, lwd = 3)
+segments(0, 0.25, 0, 1.75, lwd = 3)
+curve(exp(-x) + 0.75, from = 0, add = TRUE, lwd = 3)
+
+
+plot(1, xlim = c(-2, 2), ylim = c(0, 1), xlab = '', ylab = '', 
+     axes = FALSE, type = 'n')
+# abline(v = 0, lwd = 5, col = 'gray')
+# box()
+# 
+# segments(-2, 1, 0, 1, lwd = 3)
+# curve(exp(-x), from = 0, add = TRUE, lwd = 3)
+```
+
+<foot>Reviewed in Kuussaari et al. (2009) *TREE*</foot>
+
+
+## Where are all the extinctions?
+
+Extinction debt
+```{r, fig.width=5, fig.height=4.5, fig.align='center'}
+graphics::layout(matrix(3:1, ncol = 1))
+par(mar = c(0, 3, 0, 0) + 0.25, oma = c(3.25, 0, 0, 0), mgp = c(1, 1, 0), cex.lab = 1.5)
+
+plot(1, xlim = c(-5, 5), ylim = c(0, 1), xlab = '', ylab = 'Area', 
+     axes = FALSE, type = 'n')
+abline(v = 0, lwd = 5, col = 'gray')
+box()
+
+segments(-5, 0.75, 0, 0.75, lwd = 3)
+segments(0, 0.75, 0, 0.25, lwd = 3)
+segments(0, 0.25, 5, 0.25, lwd = 3)
+
+mtext('Time', side = 1, outer = TRUE, line = 1)
+
+
+plot(1, xlim = c(-5, 5), ylim = c(-0.1, 2), xlab = '', ylab = 'Extinction rate', 
+     axes = FALSE, type = 'n')
+abline(v = 0, lwd = 5, col = 'gray')
+box()
+
+segments(-5, 0.25, 0, 0.25, lwd = 3)
+segments(0, 0.25, 0, 1.75, lwd = 3)
+curve(exp(-x) + 0.75, from = 0, add = TRUE, lwd = 3)
 
 
 plot(1, xlim = c(-2, 2), ylim = c(0, 1), xlab = '', ylab = 'Species', 
