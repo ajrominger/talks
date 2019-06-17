@@ -1,0 +1,10 @@
+base
+devtools
+slidify
+ggplot2
+sp
+maptools
+rgdal
+rgeos
+ape
+pika
