@@ -1,5 +1,5 @@
 ---
-title: Diversity informatics for all
+title: Three Tree of Life Inspired Approaches to Tropical Hyperdiversity
 author: Andrew Rominger
 mode  : selfcontained
 framework: impressjs
@@ -9,44 +9,262 @@ github:
   repo: talks 
 url:
   lib: ../libraries
---- #overview x:3000 y:2500 scale:1
+--- #title x:0 y:0 scale:2
+Three Tree-of-Life-Inspired Approaches to Tropical Hyperdiversity<br/>
+<br/>
+Andy Rominger
 
---- #hawaii x:0 y:2500 scale:4
-```{r, fig.width = 3, fig.height = 2, echo = FALSE, eval = TRUE, message = FALSE}
-knitr::include_graphics('assets/fig/hawaii.png')
+```{r, echo = FALSE}
+x0 <- -1000
+y <- 1500
+xpls <- 1000
+x <- x0
+
 ```
 
---- #bugs x:2500 y:-100 z:-500 rot:50 scale:5
-```{r, fig.width = 3, fig.height = 2, echo = FALSE, eval = TRUE, message = FALSE}
-knitr::include_graphics('assets/fig/bugs.png')
+--- .slide x:`r x` y:`r y`
+
+<h3>Why are tropical rainforests so diverse?</h3>
+
+- Are their dynamics transient or equilibrial$^*$?
+- Is their equilibrium diversity higher?
+    - Are ecological interactions stronger and have stronger feedbacks on diversification?
+    - Do all clades diversify more in the tropics, or are the tropics full of high-diversifying clades?
+- Is their diversity maintained above their potential equilibrium?
+    - What would "purturbe" tropical ecosystems?
+    - Is there a correlation between evidence for non-equilibrium and diversity?
+- Are other areas below their potential equilibrium?
+    - Is there evidence of stability and equilibrium in the tropics?
+    - Does stability and equilibrium correlate with diversity?
+
+
+
+```{r, echo = FALSE}
+x <- x0
+y <- y + 1000
+
 ```
 
---- #theory x:6000 y:1000 z:-1000 rot:140 scale:5
-```{r, echo = FALSE, eval = TRUE, message = FALSE}
-# rates through time
-knitr::include_graphics('assets/fig/mod.png')
+
+--- .slide x:`r x` y:`r y`
+
+<q>Approach 1: <br/>Quantifying equilibrium with the Maximum Entropy Theory of Ecology</q>
+
+```{r, echo = FALSE}
+x <- x + xpls
+
 ```
 
---- #theory2 x:10000 y:2000 z:-5000 rot:140 scale:2
-```{r, echo = FALSE, eval = TRUE, message = FALSE}
-# rates through time
-knitr::include_graphics('assets/fig/meteHalf.png')
+
+--- .slide x:`r x` y:`r y`
+
+**The Maximum Entropy Theory of Ecology (METE)** provides a prediction for an assembledge in *statistical* steady state.
+
+```{r, meteExplc, fig.width = 7, fig.height = 6, fig.align = 'center', echo = FALSE, eval = TRUE, message = FALSE}
+
+Ebreak <- cumsum(sort(0.03 + (1-0.03*12)*rmultinom(1,1000,rexp(11))[,1]/1000,decreasing=TRUE))
+Ebreak <- c(0,Ebreak,1)
+
+indAt <- seq(0.1,0.9,length=12)
+sppAt <- seq(0.3,0.7,by=0.2)
+
+par(mar=c(2.5, 0, 0.5, 0) + 0.1, mgp = c(1.5, 0.5, 0), cex = 2)
+plot(1, type = 'n', xlim = c(0.4, 1), ylim = c(0, 1), xlab = '', axes = FALSE)
+
+rect(0.9,0,1,1,col=hsv(0.42,0.6,0.6),border=NA)
+segments(x0=0.9,x1=1,y0=Ebreak[2:12],col=hsv(0.42,0.6,0.8),lwd=2)
+
+rect(0.65,indAt,0.75,indAt+0.03,col=hsv(0.6,0.3,0.7),border=NA)
+
+for(i in 1:12) {
+    polygon(x=c(0.75,0.75,0.9,0.9),
+            y=c(indAt[i],indAt[i]+0.03,Ebreak[i+1],Ebreak[i]),
+            col=hsv(0.42,0.6,0.8),border=hsv(0.42,0.6,0.8),lwd=0.2)
+    
+    if(i < 3) {
+        polygon(x=c(0.65,0.65,0.45),
+                y=c(indAt[i],indAt[i]+0.03,sppAt[1]),
+                col=hsv(0.6,0.3,0.8),border=hsv(0.6,0.3,0.8))
+    } else if(i < 7) {
+        polygon(x=c(0.65,0.65,0.45),
+                y=c(indAt[i],indAt[i]+0.03,sppAt[2]),
+                col=hsv(0.6,0.3,0.8),border=hsv(0.6,0.3,0.8))
+    } else {
+        polygon(x=c(0.65,0.65,0.45),
+                y=c(indAt[i],indAt[i]+0.03,sppAt[3]),
+                col=hsv(0.6,0.3,0.8),border=hsv(0.6,0.3,0.8))
+    }
+}
+
+points(rep(0.45,3),sppAt,cex=4,pch=21,bg=hsv(0.05,0.7,0.8))
+
+axis(1,at=c(0.45,0.7,0.95),labels=c('Species','Individuals','Energy'))
 ```
 
---- #theory3 x:9000 y:3000 z:-5000 rot:140 scale:2
-```{r, echo = FALSE, eval = TRUE, message = FALSE}
-# rates through time
-knitr::include_graphics('assets/fig/metabHalf.png')
+It does so by seeking the least biased way of allocating metabolism to individuals and individuals to species.
+
+```{r, echo = FALSE}
+x <- x + xpls
+
 ```
 
---- #hypotheses x:4500 y:3500 z:-1500 rot:230 scale:6
-```{r, echo = FALSE, eval = TRUE, message = FALSE}
-knitr::include_graphics('assets/fig/hyp.png')
+
+--- .slide x:`r x` y:`r y`
+
+**The Maximum Entropy Theory of Ecology (METE)** provides a prediction for an assembledge in *statistical* steady state.
+
+```{r, metePred, fig.align = 'center', echo = FALSE, eval = TRUE, message = FALSE, out.width = '600px', out.height = '450px'}
+knitr::include_graphics('assets/fig/fig_meteFramework.png')
 ```
 
---- #db x:3500 y:2000 z:-2000 rot:320 scale:3
-```{r, echo = FALSE, eval = TRUE, message = FALSE}
-# rates through time
-knitr::include_graphics('assets/fig/db_trans.png')
+It predicts many macroecological metrics of inerest.
+
+```{r, echo = FALSE}
+x <- x + xpls
 ```
 
+
+--- .slide x:`r x` y:`r y`
+
+Hawaii
+
+```{r, echo = FALSE}
+x <- x + xpls
+```
+
+--- .slide x:`r x` y:`r y`
+
+<q>For all availible TRF plot data, compare METE predictions to observed, and...<q/>
+
+```{r, echo = FALSE}
+x <- x + xpls
+```
+
+
+--- .slide x:`r x` y:`r y`
+
+Evaluate if deviations from METE correlate with diversity or inferred diversification
+
+```{r trfMETE_pred1, fig.width = 10, fig.height = 5, fig.align = 'center', echo = FALSE, eval = TRUE, message = FALSE}
+
+layout(matrix(1:2, nrow = 1))
+par(mar=c(2.5, 2.5, 1.5, 1) + 0.1, mgp = c(0.5, 0, 0), cex = 2)
+curve(0.1 + 0*x, xlab = 'Standing diversity', ylab = 'Deviation from METE', lwd = 5,
+      axes = FALSE, frame.plot = TRUE, col = hsv(0.7, 1, 0.7), 
+      ylim = 0:1)
+curve(0.7 + 0*x, lwd = 5, col = hsv(0.6, 0.6, 0.9), add = TRUE)
+curve(1 - 1*x, lwd = 5, col = hsv(0, 0.6, 0.8), add = TRUE)
+curve(1*x, lwd = 5, col = hsv(0.13, 1, 0.8), add = TRUE)
+```
+<span style="color: `r hsv(0.7, 1, 0.7)`">Local systems in equilibrium, no bearing on diversity</span></br>
+<span style="color: `r hsv(0.6, 0.6, 0.9)`">Local systems **not** in equilibrium, no bearing on diversity</span>
+<span style="color: `r hsv(0, 0.6, 0.8)`">Deviations from equilibrium linked to greater diversity</span></br>
+<span style="color: `r hsv(0.13, 1, 0.8)`">Deviations from equilibrium linked to less diversity</span></br>
+
+```{r, echo = FALSE}
+x <- x + xpls
+```
+
+--- .slide x:`r x` y:`r y`
+
+Evaluate if deviations from METE correlate with diversity or inferred diversification
+
+```{r trfMETE_pred2, fig.width = 10, fig.height = 5, fig.align = 'center', echo = FALSE, eval = TRUE, message = FALSE}
+
+layout(matrix(2:1, nrow = 1))
+par(mar=c(2.5, 1, 1.5, 2.5) + 0.1, mgp = c(0.5, 0.5, 0), cex = 2, xpd = NA)
+curve(0.1 + 0*x, xlab = '', ylab = 'Deviation from METE', lwd = 5,
+      axes = FALSE, frame.plot = TRUE, col = hsv(0.7, 1, 0.7), 
+      ylim = 0:1)
+axis(1, at = 0.5, label = 0, tcl = -0.4)
+mtext('Diversification rate', side = 1, line = 1.2, cex = 2)
+curve(0.7 + 0*x, lwd = 5, col = hsv(0.6, 0.6, 0.9), add = TRUE)
+curve(4 * (x - 0.5)^2, lwd = 5, col = hsv(0, 0.6, 0.8), add = TRUE)
+```
+<span style="color: `r hsv(0.7, 1, 0.7)`">Local systems in equilibrium, no bearing on diversification</span></br>
+<span style="color: `r hsv(0.6, 0.6, 0.9)`">Local systems **not** in equilibrium, no bearing on diversification</span></br>
+<span style="color: `r hsv(0, 0.6, 0.8)`">Deviations from equilibrium linked to higher rates (+ and -)</span></br>
+
+```{r, echo = FALSE}
+x <- x + xpls
+```
+
+--- .slide x:`r x` y:`r y`
+
+Evaluate if deviations from METE correlate with diversity or inferred diversification
+
+```{r trfMETE_pred3, fig.width = 10, fig.height = 5, fig.align = 'center', echo = FALSE, eval = TRUE, message = FALSE}
+
+layout(matrix(2:1, nrow = 1))
+
+par(mar=c(2.5, 1, 1.5, 2.5) + 0.1, mgp = c(0.5, 0.5, 0), cex = 2, xpd = NA)
+curve(0.1 + 0*x, xlab = '', ylab = 'Deviation from METE', lwd = 5,
+      axes = FALSE, frame.plot = TRUE, col = hsv(0.7, 1, 0.7), 
+      ylim = 0:1)
+axis(1, at = 0.5, label = 0, tcl = -0.4)
+mtext('Diversification rate', side = 1, line = 1.2, cex = 2)
+curve(0.7 + 0*x, lwd = 5, col = hsv(0.6, 0.6, 0.9), add = TRUE)
+curve(4 * (x - 0.5)^2, lwd = 5, col = hsv(0, 0.6, 0.8), add = TRUE)
+
+par(mar=c(2.5, 2.5, 1.5, 1) + 0.1, mgp = c(0.5, 0, 0), cex = 2)
+curve(0.1 + 0*x, xlab = 'Standing diversity', ylab = 'Deviation from METE', lwd = 5,
+      axes = FALSE, frame.plot = TRUE, col = hsv(0.7, 1, 0.7), 
+      ylim = 0:1)
+curve(0.7 + 0*x, lwd = 5, col = hsv(0.6, 0.6, 0.9), add = TRUE)
+curve(1 - 1*x, lwd = 5, col = hsv(0, 0.6, 0.8), add = TRUE)
+curve(1*x, lwd = 5, col = hsv(0.13, 1, 0.8), add = TRUE)
+```
+In combination these perspectives reveal effects of processes across timescales on equilibrium, transience, and diversity.
+
+```{r, echo = FALSE}
+x <- x + xpls
+```
+
+
+--- .slide x:`r x` y:`r y`
+Use DASEY to estimate diversification
+
+```{r, echo = FALSE}
+x <- x + xpls
+```
+
+
+--- .slide x:`r x` y:`r y`
+Look at stability/age and deviation
+
+```{r, echo = FALSE}
+x <- x + xpls
+```
+
+
+--- .slide x:`r x` y:`r y`
+Estiamte stability/age with phylo reconstruction, SDM, msBayes
+
+
+```{r, echo = FALSE}
+x <- x + xpls
+```
+
+
+```{r, echo = FALSE}
+x <- x0
+y <- y + 1000
+```
+
+--- .slide x:`r x` y:`r y`
+
+<q>Approach 2: <br/>Quantifying process with the Massive Eco-evolutionary Synthesis Simulation</q>
+
+```{r, echo = FALSE}
+x <- x0
+y <- y + 1000
+
+```
+
+--- .slide x:`r x` y:`r y`
+
+Range through time and Darwin's hypothesis
+
+```{r, echo = FALSE}
+x <- x + xpls
+```
