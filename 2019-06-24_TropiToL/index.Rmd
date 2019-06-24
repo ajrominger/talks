@@ -161,8 +161,8 @@ curve(1*x, lwd = 5, col = hsv(0.13, 1, 0.8), add = TRUE)
 ```
 <span style="color: `r hsv(0.7, 1, 0.7)`">Local systems in equilibrium, no bearing on diversity</span></br>
 <span style="color: `r hsv(0.6, 0.6, 0.9)`">Local systems **not** in equilibrium, no bearing on diversity</span>
-<span style="color: `r hsv(0, 0.6, 0.8)`">Deviations from equilibrium linked to greater diversity</span></br>
-<span style="color: `r hsv(0.13, 1, 0.8)`">Deviations from equilibrium linked to less diversity</span></br>
+<span style="color: `r hsv(0, 0.6, 0.8)`">Deviations from equilibrium linked to less diversity</span></br>
+<span style="color: `r hsv(0.13, 1, 0.8)`">Deviations from equilibrium linked to greater diversity</span></br>
 
 ```{r, echo = FALSE}
 x <- x + xpls
@@ -266,6 +266,10 @@ box()
 ```
 </br>
 The model was designed for islands, but we could use it across scales on continents in combination with ancestral area reconstructions (e.g. BayArea)
+
+<span style="font-size:20px">Valente, et al. (2015) Ecology Letters; Landis, et al. (2013) Systematic Biology</span>
+
+
 
 ```{r, echo = FALSE}
 x <- x + xpls

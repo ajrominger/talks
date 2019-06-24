@@ -90,8 +90,8 @@ Evaluate if deviations from METE correlate with diversity or inferred diversific
 <img src="assets/fig/trfMETE_pred1-1.png" title="plot of chunk trfMETE_pred1" alt="plot of chunk trfMETE_pred1" style="display: block; margin: auto;" />
 <span style="color: #2400B3">Local systems in equilibrium, no bearing on diversity</span></br>
 <span style="color: #5C93E6">Local systems **not** in equilibrium, no bearing on diversity</span>
-<span style="color: #CC5252">Deviations from equilibrium linked to greater diversity</span></br>
-<span style="color: #CC9F00">Deviations from equilibrium linked to less diversity</span></br>
+<span style="color: #CC5252">Deviations from equilibrium linked to less diversity</span></br>
+<span style="color: #CC9F00">Deviations from equilibrium linked to greater diversity</span></br>
 
 
 
@@ -123,6 +123,10 @@ Use DAISIE model to estimate diversification
 <img src="assets/fig/DAISIE-1.png" title="plot of chunk DAISIE" alt="plot of chunk DAISIE" style="display: block; margin: auto;" />
 </br>
 The model was designed for islands, but we could use it across scales on continents in combination with ancestral area reconstructions (e.g. BayArea)
+
+<span style="font-size:20px">Valente, et al. (2015) Ecology Letters; Landis, et al. (2013) Systematic Biology</span>
+
+
 
 
 
