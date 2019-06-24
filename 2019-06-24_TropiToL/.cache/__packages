@@ -8,3 +8,9 @@ rgdal
 rgeos
 ape
 pika
+usethis
+DBI
+RPostgreSQL
+BIEN
+maps
+rotl
